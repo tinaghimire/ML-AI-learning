@@ -39,3 +39,11 @@ str_count = "One fish, two fish, red fish, blue Fish"
 # To find the first occurence of word
 print(str_count.index('fish'))
 print(str_count.rindex('fish'))
+
+# Slicing a string
+greeting = "Hello World"
+print(greeting[:5])
+
+# Use of in and not in string
+print('ll' in greeting)
+print('llo' not in greeting)
