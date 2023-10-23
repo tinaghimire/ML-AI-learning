@@ -18,3 +18,18 @@ print(len(num))
 print(max(num))
 print(min(num))
 print(sorted(num))
+
+num_word = ['Twenty-one', 'Two', 'Fifteen', 'Ninety-eight', 'Twelve']
+print(len(num_word))
+print(max(num_word))
+print(min(num_word))
+print(sorted(num_word))
+
+# Join function in list
+print("/".join(num_word))
+
+# Append function in list
+num_word.append('Fifty')
+num.append(50)
+print(num)
+print(num_word)
