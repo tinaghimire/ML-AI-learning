@@ -34,10 +34,25 @@ num.append(50)
 print(num)
 print(num_word)
 
+# Iterate in list
+for month in months:
+    print(month)
+
+# Create new list
+lower_word = []
+for word in num_word:
+    lower_word.append(word.lower())
+
+print(lower_word)
+
 # Tuple
 location = (13.4125, 103.866667)
 print("Latitude:", location[0])
 print("Longitude:", location[1])
+
+# Iterate in Tuple
+for loc in location:
+    print(loc)
 
 # Tuple with multiple variable names
 dimensions = 52, 40, 100
@@ -48,6 +63,10 @@ print("The dimensions are {} x {} x {}".format(length, width, height))
 numbers = [1, 2, 6, 3, 1, 1, 6]
 unique_num = set(numbers)    #  {1, 2, 6, 3}
 print(unique_num)
+
+# Iterate in sets
+for num in unique_num:
+    print(num)
 
 # Methods in set
 fruit = {"apple", "banana", "orange", "grapefruit"}
@@ -64,6 +83,10 @@ elements = {"hydrogen": 1, "helium": 2, "carbon": 6}
 print(elements["helium"])   # 2
 elements["lithium"] = 3     # Values can be changed
 print(elements)
+
+# Iterate in Dictionary
+for key, val in elements.items():
+    print(key,val)
 
 # in keyword
 print("carbon" in elements)
@@ -94,3 +117,9 @@ print('elements = ', elements)
 elements['hydrogen']['is_noble_gas'] = False
 elements['helium']['is_noble_gas'] = True
 elements['oxygen']['is_noble_gas'] = False
+
+for key, val in elements.items():
+    print(key.capitalize())
+    for k,v in val.items():
+        print(k, v)
+
