@@ -47,3 +47,14 @@ print(greeting[:5])
 # Use of in and not in string
 print('ll' in greeting)
 print('llo' not in greeting)
+
+# Taking input
+name = input("Enter your name: ")
+print("Hello there, {}!".format(name.title()))
+
+num = int(input("Enter an integer"))
+print("hello" * num)
+
+# We can also interpret user input as a Python expression using the built-in function eval.
+result = eval(input("Enter an expression: "))
+print(result)
