@@ -5,7 +5,6 @@ def cylinder_vol(height, radius):
 
 # Function call
 result = cylinder_vol(2, 2)
-print(f'Volume of cylinder is {result}')
 
 # Define a function with default arguments
 def cylinder_volume(height, radius=5):
@@ -17,7 +16,11 @@ cylinder_volume(height=10, radius=7)  # pass in arguments by name
 
 # Lambda function
 double = lambda x : x * 2
-print(double(3))
 
 area = lambda x, y : x * y
-print(area(4,10))
+
+# These code below runs only if Function.py runs not when other file that imports Function.py runs.
+if __name__ == '__main__': 
+    print(f'Volume of cylinder is {result}')
+    print(double(3))
+    print(area(4,10))
