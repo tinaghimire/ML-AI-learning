@@ -79,7 +79,6 @@ def print_results(results_dic, results_stats_dic, model,
 
 
     # Prints summary statistics (percentages) on Model Run
-    print(" ")
     for key in results_stats_dic:
         # TODO: 6b. REPLACE pass with CODE that prints out all the percentages 
         #           in the results_stats_dic dictionary. Recall that all 
@@ -90,46 +89,49 @@ def print_results(results_dic, results_stats_dic, model,
         #           both the key and the value. Remember the value is accessed 
         #           by results_stats_dic[key]
         #
-        if key[0] == 'p':
-            print('{} : {}'.format(key, results_stats_dic[key]))
+        if key.startswith('p'):
+            print('{:20} : {:3d}'.format(key, results_stats_dic[key]))
 
 
-#     # IF print_incorrect_dogs == True AND there were images incorrectly 
-#     # classified as dogs or vice versa - print out these cases
-#     if (print_incorrect_dogs and 
-#         ( (results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs'])
-#           != results_stats_dic['n_images'] ) 
-#        ):
-#         print("\nINCORRECT Dog/NOT Dog Assignments:")
+    # IF print_incorrect_dogs == True AND there were images incorrectly 
+    # classified as dogs or vice versa - print out these cases
+    if (print_incorrect_dogs and 
+        ( (results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_notdogs'])
+          != results_stats_dic['n_images'] ) 
+       ):
+        print("\nINCORRECT Dog/NOT Dog Assignments:")
 
-#         # process through results dict, printing incorrectly classified dogs
-#         for key in results_dic:
+        # process through results dict, printing incorrectly classified dogs
+        for key in results_dic:
 
-#             # TODO: 6c. REPLACE pass with CODE that prints out the pet label 
-#             #           and the classifier label from results_dic dictionary    
-#             #           ONLY when the classifier function (classifier label) 
-#             #           misclassified dogs specifically: 
-#             #             pet label is-a-dog and classifier label is-NOT-a-dog 
-#             #               -OR- 
-#             #             pet label is-NOT-a-dog and classifier label is-a-dog 
-#             #          You will need to write a conditional statement that 
-#             #          determines if the classifier function misclassified dogs
-#             #          See 'Adjusting Results Dictionary' section in 
-#             #         'Classifying Labels as Dogs' for details on the 
-#             #          format of the results_dic dictionary. Remember the value
-#             #          is accessed by results_dic[key] and the value is a list
-#             #          so results_dic[key][idx] - where idx represents the 
-#             #          index value of the list and can have values 0-4.
-#             #
-#             # Pet Image Label is a Dog - Classified as NOT-A-DOG -OR- 
-#             # Pet Image Label is NOT-a-Dog - Classified as a-DOG
-#             if ((results_dic[key][3] == 1 and results_dic[key][4] == 0) or (results_dic[key][3] == 0 and results_dic[key][4] == 1)):
-#                 print('Pet Label: {}, Classifier Label: {}'.format(results_dic[key][0],results_dic[key][3]
+            # TODO: 6c. REPLACE pass with CODE that prints out the pet label 
+            #           and the classifier label from results_dic dictionary    
+            #           ONLY when the classifier function (classifier label) 
+            #           misclassified dogs specifically: 
+            #             pet label is-a-dog and classifier label is-NOT-a-dog 
+            #               -OR- 
+            #             pet label is-NOT-a-dog and classifier label is-a-dog 
+            #          You will need to write a conditional statement that 
+            #          determines if the classifier function misclassified dogs
+            #          See 'Adjusting Results Dictionary' section in 
+            #         'Classifying Labels as Dogs' for details on the 
+            #          format of the results_dic dictionary. Remember the value
+            #          is accessed by results_dic[key] and the value is a list
+            #          so results_dic[key][idx] - where idx represents the 
+            #          index value of the list and can have values 0-4.
+            #
+            # Pet Image Label is a Dog - Classified as NOT-A-DOG -OR- 
+            # Pet Image Label is NOT-a-Dog - Classified as a-DOG
+            
+            if (results_dic[key][3] == 1 and results_dic[key][4] == 0) or (results_dic[key][3] == 0 and results_dic[key][4] == 1):
+                print('Pet Label: {}, Classifier Label: {}'.format(results_dic[key][0],results_dic[key][3]))
 
     # IF print_incorrect_breed == True AND there were dogs whose breeds 
-    # were incorrectly classified - print out these cases                    
-    if print_incorrect_breed and (results_stats_dic['n_correct_dogs'] != results_stats_dic['n_correct_breed']):
-        print("\nINCORRECT Dog Breed Assignment:")
+    # were incorrectly classified - print out these cases         
+    if (print_incorrect_breed and 
+        ( (results_stats_dic['n_correct_dogs'] + results_stats_dic['n_correct_breed']) ) ):
+        print("\nINCORRECT Dog Breed Assignments:")
+
 
         # process through results dict, printing incorrectly classified breeds
         for key in results_dic:
